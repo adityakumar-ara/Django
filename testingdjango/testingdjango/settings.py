@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testingapp' ##Second Changes
+    'testingapp' ##Second Changes App Name
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'testingapp.urls'##Check Changes
+ROOT_URLCONF = 'testingdjango.urls'##Check Changes Project name
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'testingdjango.wsgi.application'##Check Changes
+WSGI_APPLICATION = 'testingdjango.wsgi.application'##Check Changes Project Name
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
