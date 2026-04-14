@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ item.name }} - Details</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+    <a href="{% url 'products' %}" style="text-decoration: none; color: red;">⬅ Back to Home</a>
+    <hr>
+
+    <h1>{{ item.name }}</h1>
+
+    {% if item.image %}
+        <img src="{{ item.image.url }}" alt="Product Image" width="400"><br>
+    {% endif %}
+
+    <h2 style="color: green;">Price: ₹{{ item.price }}</h2>
+    
+    <p><strong>Description:</strong></p>
+    <p>{{ item.description }}</p>
+
+    <button style="background-color: blue; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">
+        Add to Cart 🛒
+    </button>
+
+</body>
+</html>
