@@ -1,3 +1,22 @@
+STEP 1 :- first of all change directry through this command
+          command :- cd projectName
+
+STEP 2 :- Create an app in django
+          command :- python manage.py startapp appName
+
+STEP 3 :- In our App create a urls.py file, and write some required code 
+        CODE :- 
+         from django.contrib import admin  
+         from django.urls import path,include  
+         urlpatterns = [
+
+            ]  
+
+
+Step 4:- Update your settings.py In Project MY PROJECT
+
+👉 Project  Folder => Setting.PY
+
 """
 Django settings for myproject project.
 
@@ -10,8 +29,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
-# First Changes
-import os 
+# First Changes 👈
+import os   👈
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testingapp' ##Second Changes App Name
+    'First' ##Second Changes App Name 👈
 ]
 
 MIDDLEWARE = [
@@ -51,12 +70,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'testingdjango.urls'##Check Changes Project name
+ROOT_URLCONF = 'projectName.urls'##Check Changes Project name 👈
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], ##Third Changes
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], ##Third Changes 👈
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'testingdjango.wsgi.application'##Check Changes Project Name
+WSGI_APPLICATION = 'Tridev.wsgi.application'##Check Changes Project Name
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -114,8 +133,48 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] ##Fourth Changes
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] ##Fourth Changes  👈
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR/ 'media'
+
+
+--------------------------------------------------------------------------------------
+
+=> Inside Templates Folder There are All HTML Files that Existed/Stored And Inside Static Folder All CSS And Images Files Are Existed.
+
+---------------------------------------------------------------------------------------
+
+👉Project Folder => urls.py
+
+------------------------------------------------------
+"""
+URL configuration for myproject project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin //👉 Django ka admin panel module
+from django.urls import path,include //👉 URL banane ke liye function
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('AppName.urls')),## App Name 
+]
+
+urlpatterns += static( settings.MEDIA_URL ,document_root = settings.MEDIA_ROOT)
