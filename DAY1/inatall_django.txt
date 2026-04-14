@@ -1,0 +1,7 @@
+first of all run this command in teminal 
+command:- pip install django
+
+Check installation:-
+command:- django-admin --version
+
+
